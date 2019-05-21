@@ -51,7 +51,7 @@ def receive(event, context):
         message = str(event["message"]["text"])
 
         if message and message.startswith('/start'):
-            command, user_id = message.split(' ')
+            user_id = event["message"]["from"]["id"]
             response.update({'user_id': int(user_id)})
             response.update({'authorize': 1})
 
